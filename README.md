@@ -1,6 +1,6 @@
 # realistic_immo
 
-### Korte generator voor fictieve vastgoeddata (Nederlands).
+### Kleinschalige aapasbare generator voor fictieve vastgoeddata (Nederlands).
 
 ## Snelstart
 1. Installeer afhankelijkheden:
