@@ -25,6 +25,8 @@
 - BOUWJAAR_BUCKETS_KANS: buckets met kansverdeling voor bouwjaar
 - OPPERVLAKTE_VERDELING en TUIN_VERDELING: gemiddelden, std, min, max per stijl
 - KWALITEIT: levels, kansen en modifier
+- SLAAPKAMERS: formule voor her toevoegen van meer slaapkamers op basis van grootte van het pand en het type
+- VERDIEPINGEN: kans dat een stijl een aantal verdiepingen heeft
 
 ## Belangrijke implementatiepunten / tips
 - Tuinfactor: factor = 1 + min(base + extra, max_factor). Bij sqrt-schaal wordt basis berekend met sqrt(ratio).
