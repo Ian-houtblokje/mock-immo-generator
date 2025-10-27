@@ -12,6 +12,11 @@ def genereer_panden(n_rows=N_ROWS):
 
     tuin = np.array([genereer_tuin(s, 1)[0] for s in stijl_array])
 
+    slaapkamers = np.array([genereer_slaapkamers(s, opp, 1)[0] for s, opp in zip(stijl_array, oppervlakte)])
+
+    verdiepingen = np.array([genereer_verdiepingen(s, 1)[0] for s in stijl_array])
+
+
     bouwjaar = genereer_bouwjaar(n_rows)
 
     kwaliteit = genereer_kwaliteit(n_rows)
@@ -26,6 +31,8 @@ def genereer_panden(n_rows=N_ROWS):
         "tuin": tuin,
         "bouwjaar": bouwjaar,
         "kwaliteit": kwaliteit,
+        "slaapkamers": slaapkamers,
+        "verdiepingen": verdiepingen,
         "vraagprijs": vraagprijs,
         "verkoopprijs": verkoopprijs
     }
