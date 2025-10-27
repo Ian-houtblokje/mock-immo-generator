@@ -5,11 +5,11 @@
 
 import numpy as np
 
-RNG_SEED = 75 
+RNG_SEED = 25 
 RNG = np.random.default_rng(RNG_SEED)
 
 N_ROWS = 250
-CSV_PATH = "immokantoor"
+CSV_PATH = "immo_mock"
 
 VERKOCHT_KANS = 0.85
 
@@ -100,4 +100,29 @@ TUIN_VERDELING = {
     "villa":       {"mean": 800,  "std": 600, "min": 100, "max": 6000},
     "landelijk":   {"mean": 1500, "std": 1200,"min": 200, "max": 15000},
     "hoeve":       {"mean": 3000, "std": 2500,"min": 500, "max": 30000},
+}
+
+# Kans op aantal verdiepingen 1-2-3 (som moet 1 per stijl zijn)
+
+VERDIEPINGEN = {
+    "AANTAL":[1, 2, 3],
+    "KANS":{
+        "appartement": [0.90, 0.08, 0.02],  
+        "rijhuis":     [0.07, 0.90, 0.03],
+        "halfopen":    [0.05, 0.85, 0.10],
+        "open":        [0.05, 0.85, 0.10],
+        "villa":       [0.05, 0.50, 0.45],
+        "landelijk":   [0.15, 0.70, 0.15],
+        "hoeve":       [0.25, 0.65, 0.10]
+    }
+}
+
+SLAAPKAMER_MODEL = {
+    "appartement": {"base": 1.0, "rate": 0.012, "min": 1, "max": 3},   
+    "rijhuis":     {"base": 2.0, "rate": 0.008, "min": 1, "max": 4},   
+    "halfopen":    {"base": 2.0, "rate": 0.008, "min": 2, "max": 4},   
+    "open":        {"base": 2.0, "rate": 0.007, "min": 2, "max": 5},   
+    "villa":       {"base": 2.5, "rate": 0.009, "min": 3, "max": 6},   
+    "landelijk":   {"base": 2.0, "rate": 0.007, "min": 2, "max": 5},   
+    "hoeve":       {"base": 2.5, "rate": 0.008, "min": 3, "max": 6}    
 }

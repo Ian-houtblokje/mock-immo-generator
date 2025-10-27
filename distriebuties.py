@@ -38,3 +38,22 @@ def genereer_bouwjaar(aantal):
         kansen.extend([kans_per_jaar] * len(jaar_range))
 
     return RNG.choice(jaren, size=aantal, p=kansen)
+
+def genereer_slaapkamers(stijl, oppervlakte, aantal=1):
+    stijl = str(stijl) if isinstance(stijl, np.str_) else stijl
+    config = SLAAPKAMER_MODEL[stijl]
+    
+
+    base = config['base'] + (oppervlakte * config['rate'])
+    
+    noise = RNG.normal(0, 0.8, size=aantal)  # Increased from 0.3 to 0.8
+    kamers = base + noise
+        
+    return np.clip(np.round(kamers), config['min'], config['max']).astype(int)
+
+
+def genereer_verdiepingen(stijl, aantal):
+    """Genereer aantal verdiepingen voor gegeven stijl."""
+    verdieping_opties = VERDIEPINGEN["AANTAL"]  
+    kansen = VERDIEPINGEN["KANS"][stijl] 
+    return RNG.choice(verdieping_opties, size=aantal, p=kansen)
